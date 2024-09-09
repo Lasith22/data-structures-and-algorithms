@@ -1,6 +1,6 @@
-let fruits = ['Apple', 'orange', 'banana'];
+let fruits = ["Apple", "orange", "banana", "hello"];
 
-fruits.push('Kesel');
+fruits.push("Kesel");
 
 // for (let i = 0; i < fruits.length; i++) {
 //   console.log(fruits[i]);
