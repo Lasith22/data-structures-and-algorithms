@@ -4,6 +4,6 @@
 // let num = '123';
 // let paddedNum = num.padStart(6, '0');
 // console.log(paddedNum);
-let word = 'hello';
-let paddedWord = word.padEnd(10, '*');
+let word = '008';
+let paddedWord = word.padStart(4, 7);
 console.log(paddedWord);
