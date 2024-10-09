@@ -1,35 +1,31 @@
-import { useState, memo } from 'react';
-
-// Move the swatch function outside of PracticeMemo to avoid redefinition
-const Swatch = ({ color }) => {
-  console.log('swatch rendered', color);
-  return (
-    <div
-      style={{
-        width: 75,
-        height: 75,
-        backgroundColor: color,
-      }}
-    ></div>
-  );
-};
-
-const MemomedSwatch = memo(Swatch);
-
+import { useState } from 'react';
+function slowFunction(num) {
+  console.log('calling slow function');
+  for (let i = 0; i <= 1000000000000000; i++) {
+    return num * 2;
+  }
+}
 const PracticeMemo = () => {
-  const [appRenderIndex, setAppRenderIndex] = useState(0);
+  const [number, setNumber] = useState(0);
+  const [dark, setDark] = useState(false);
+  const doubleNumber = slowFunction(number);
 
-  console.log('app rendered', appRenderIndex);
-
+  const themeStyles = {
+    backgroundColor: dark ? 'black' : 'white',
+    color: dark ? 'white' : 'black',
+  };
   return (
-    <div>
-      <button onClick={() => setAppRenderIndex(appRenderIndex + 1)}>
-        Re-render app
+    <>
+      <input
+        type="number"
+        value={number}
+        onChange={(e) => setNumber(parseInt(e.target.value))}
+      />
+      <button onClick={() => setDark((prevDark) => !prevDark)}>
+        Change Theme
       </button>
-      <div>
-        <MemomedSwatch color="red" />
-      </div>
-    </div>
+      <div style={themeStyles}>{doubleNumber}</div>
+    </>
   );
 };
 
