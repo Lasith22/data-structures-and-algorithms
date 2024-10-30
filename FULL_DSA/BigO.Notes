@@ -1,0 +1,5 @@
+Big o notation helps uus to understand how long an algorithm will take to run or how much memory it takes 
+it will need as the amount of data it hanndele grows
+
+ example to understand BIG O------- Imagin you have a giant mess to clean. Big o notation is like saying how the cleaning time grows as the mess gets bigger.
+ 
